@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ldal.pigeonapp.FAQScene">
+    <children>
+        <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@settingsBG.png" />
+            </image>
+        </ImageView>
+        <Label layoutX="167.0" layoutY="70.0" styleClass="custom-font" stylesheets="@styleforROBOTO.css" text="FAQ">
+            <font>
+                <Font name="Roboto Bold" size="69.0" />
+            </font>
+        </Label>
+        <Label layoutX="167.0" layoutY="153.0" styleClass="custom-font-even-smaller" stylesheets="@styleforROBOTO.css" text="Q: How do I email multiple users at once?">
+            <font>
+                <Font name="Roboto Bold" size="19.0" />
+            </font>
+        </Label>
+        <Label fx:id="warner" layoutX="446.0" layoutY="350.0" prefHeight="21.0" prefWidth="340.0" textFill="#ff1414">
+            <font>
+                <Font size="15.0" />
+            </font>
+        </Label>
+        <Button layoutX="122.0" layoutY="53.0" mnemonicParsing="false" onAction="#Backtomenu" opacity="0.82" prefHeight="33.0" prefWidth="35.0" style="-fx-background-radius: 10; -fx-background-color: #de7259; -fx-label-padding: 30; -fx-padding: -40;" styleClass="custom-font" stylesheets="@style.css" text="o">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+            <font>
+                <Font name="Follow The Arrow" size="22.0" />
+            </font>
+        </Button>
+        <Label layoutX="167.0" layoutY="187.0" styleClass="custom-font-even-smaller" stylesheets="@styleforROBOTO.css" text="A: To email multiple users at once, separate their email addresses with commas (',').">
+            <font>
+                <Font name="Roboto Bold" size="19.0" />
+            </font>
+        </Label>
+        <Label layoutX="167.0" layoutY="273.0" styleClass="custom-font-even-smaller" stylesheets="@styleforROBOTO.css" text="Q: How do I report a bug,person or suggest a feature?">
+            <font>
+                <Font name="Roboto Bold" size="19.0" />
+            </font>
+        </Label>
+        <Label layoutX="167.0" layoutY="307.0" styleClass="custom-font-even-smaller" stylesheets="@styleforROBOTO.css" text="A: Contact us on our official hotline +995 514-20-88-22">
+            <font>
+                <Font name="Roboto Bold" size="19.0" />
+            </font>
+        </Label>
+        <Label layoutX="167.0" layoutY="365.0" styleClass="custom-font-even-smaller" stylesheets="@styleforROBOTO.css" text="Q: I forgot my password. What should I do?">
+            <font>
+                <Font name="Roboto Bold" size="19.0" />
+            </font>
+        </Label>
+        <Label layoutX="167.0" layoutY="399.0" styleClass="custom-font-even-smaller" stylesheets="@styleforROBOTO.css" text="A: You can change your password using your recovery pass, which you received during registration.">
+            <font>
+                <Font name="Roboto Bold" size="19.0" />
+            </font>
+        </Label>
+        <Label layoutX="192.0" layoutY="423.0" prefHeight="24.0" prefWidth="399.0" styleClass="custom-font-even-smaller" stylesheets="@styleforROBOTO.css" text="It's also accessible if you set a recovery gmail.">
+            <font>
+                <Font name="Roboto Bold" size="19.0" />
+            </font>
+        </Label>
+        <Label layoutX="167.0" layoutY="211.0" styleClass="custom-font-even-smaller" stylesheets="@styleforROBOTO.css" text="ex: GideonOfnir@pigeon.nest, TheFool@pigeon.nest, AlexKopaliani@pigeon.nest">
+            <font>
+                <Font name="Roboto Bold" size="19.0" />
+            </font>
+        </Label>
+    </children>
+</AnchorPane>

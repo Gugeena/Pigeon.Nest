@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchorPane" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ldal.pigeonapp.EmailReader">
+   <children>
+      <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@bg.png" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#de7c6651" height="15.0" layoutX="-74.0" layoutY="117.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1354.0" />
+      <VBox fx:id="sideBarVbox" layoutY="24.0" prefHeight="696.0" prefWidth="154.0" style="-fx-background-color: #ffcf95;">
+         <effect>
+            <DropShadow radius="18.7925" width="56.17">
+               <color>
+                  <Color opacity="0.4198473393917084" />
+               </color>
+            </DropShadow>
+         </effect>
+         <children>
+            <Button fx:id="composerButton" mnemonicParsing="false" prefHeight="41.0" prefWidth="113.0" style="-fx-background-color: transparent;" styleClass="custom-font-even-smaller" stylesheets="@styleforROBOTO.css" text="Compose">
+               <VBox.margin>
+                  <Insets left="5.0" top="80.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Roboto Medium" size="21.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" style="-fx-background-color: transparent;" styleClass="custom-font-even-smaller" stylesheets="@styleforROBOTO.css" visible="false">
+               <VBox.margin>
+                  <Insets left="5.0" top="4.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Roboto Medium" size="21.0" />
+               </font>
+            </Button>
+            <Button fx:id="inboxButton" mnemonicParsing="false" onAction="#goToSelector" style="-fx-background-color: transparent;" styleClass="custom-font-even-smaller" stylesheets="@styleforROBOTO.css" text="Inbox">
+               <font>
+                  <Font name="Roboto Medium" size="21.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="4.0" top="30.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="draftsButton" mnemonicParsing="false" onAction="#goToSelector" style="-fx-background-color: transparent;" styleClass="custom-font-even-smaller" stylesheets="@styleforROBOTO.css" text="Drafts">
+               <font>
+                  <Font name="Roboto Medium" size="21.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="4.0" top="10.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="sentButton" mnemonicParsing="false" onAction="#goToSelector" style="-fx-background-color: transparent;" styleClass="custom-font-even-smaller" stylesheets="@styleforROBOTO.css" text="Sent">
+               <font>
+                  <Font name="Roboto Medium" size="21.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="4.0" top="10.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="spamButton" mnemonicParsing="false" onAction="#goToSelector" style="-fx-background-color: transparent;" styleClass="custom-font-even-smaller" stylesheets="@styleforROBOTO.css" text="Spam">
+               <font>
+                  <Font name="Roboto Medium" size="21.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="4.0" top="10.0" />
+               </VBox.margin>
+            </Button>
+            <ScrollPane hbarPolicy="NEVER" prefHeight="232.0" prefWidth="154.0" style="-fx-background: transparent; -fx-background-color: transparent;">
+               <content>
+                  <VBox fx:id="labelsVbox" prefWidth="152.0" />
+               </content>
+               <VBox.margin>
+                  <Insets top="60.0" />
+               </VBox.margin>
+            </ScrollPane>
+            <Button mnemonicParsing="false" onAction="#goToLabels" prefHeight="39.0" prefWidth="152.0" style="-fx-background-color: ecaa81;">
+               <graphic>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@newLabel.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="2.0" top="2.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <Label style="-fx-text-fill: ff4c4c;" styleClass="custom-font-even-smaller" stylesheets="@styleforROBOTO.css" text="NEW LABEL">
+                           <HBox.margin>
+                              <Insets left="2.0" top="4.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+               </graphic>
+            </Button>
+         </children>
+      </VBox>
+      <ScrollPane hbarPolicy="NEVER" layoutX="157.0" layoutY="132.0" prefHeight="588.0" prefWidth="1122.0" style="-fx-background: transparent; -fx-background-color: transparent;">
+         <content>
+            <Label fx:id="emailText" alignment="TOP_LEFT" prefHeight="1990.0" prefWidth="1089.0" textFill="#1b1a1a" translateX="14.0" translateY="9.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </content>
+      </ScrollPane>
+      <Label fx:id="Declareridk" layoutX="172.0" layoutY="52.0" prefHeight="34.0" prefWidth="62.0" styleClass="custom-font-even-smaller" stylesheets="@styleforROBOTO.css" text="From : ">
+         <font>
+            <Font name="Roboto Light" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="senderText" layoutX="234.0" layoutY="52.0" prefHeight="34.0" prefWidth="315.0" styleClass="custom-font-even-smaller" stylesheets="@styleforROBOTO.css">
+         <font>
+            <Font name="Roboto Medium" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="subjText" layoutX="172.0" layoutY="83.0" prefHeight="34.0" prefWidth="400.0" styleClass="custom-font-even-smaller" stylesheets="@styleforROBOTO.css">
+         <font>
+            <Font name="Roboto Light Italic" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="dateText" alignment="CENTER_RIGHT" layoutX="1000.0" layoutY="52.0" prefHeight="34.0" prefWidth="242.0" styleClass="custom-font-even-smaller" stylesheets="@styleforROBOTO.css" textFill="#00000072">
+         <font>
+            <Font name="Roboto Light Italic" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="timeText" alignment="CENTER_RIGHT" layoutX="1180.0" layoutY="83.0" prefHeight="34.0" prefWidth="62.0" styleClass="custom-font-even-smaller" stylesheets="@styleforROBOTO.css" textFill="#00000072">
+         <font>
+            <Font name="Roboto Light Italic" size="20.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="5.0" fill="#e17c65" height="6.0" layoutX="-62.0" layoutY="199.0" smooth="false" stroke="TRANSPARENT" strokeType="INSIDE" width="216.0" />
+      <Rectangle arcHeight="5.0" fill="#e07c6557" height="6.0" layoutX="-62.0" layoutY="419.0" smooth="false" stroke="TRANSPARENT" strokeType="INSIDE" width="219.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e17c65" height="730.0" layoutX="151.0" layoutY="-10.0" stroke="TRANSPARENT" strokeType="INSIDE" width="6.0" />
+      <ToolBar prefHeight="45.0" prefWidth="1280.0" style="-fx-background-color: #ecaa81;">
+        <items>
+            <ImageView fitHeight="49.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true" scaleX="1.5" scaleY="1.5" scaleZ="1.5" translateX="25.0" translateY="15.0">
+               <image>
+                  <Image url="@icon.png" />
+               </image>
+               <effect>
+                  <DropShadow height="14.66" radius="5.484999999999999" width="9.28">
+                     <color>
+                        <Color opacity="0.2328244149684906" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </ImageView>
+            <Button fx:id="profilebutton" mnemonicParsing="false" onAction="#profilebutton" style="-fx-background-color: transparent;" styleClass="custom-font-even-smaller" stylesheets="@styleforROBOTO.css" text="Configure" translateX="1090.0" />
+        </items>
+         <effect>
+            <DropShadow height="91.35" radius="22.3375" width="0.0">
+               <color>
+                  <Color opacity="0.6221374273300171" />
+               </color>
+            </DropShadow>
+         </effect>
+      </ToolBar>
+   </children>
+</AnchorPane>

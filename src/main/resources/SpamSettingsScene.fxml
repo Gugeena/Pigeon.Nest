@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ldal.pigeonapp.SpamSettingsScene">
+   <children>
+      <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@settingsBG.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="451.0" layoutY="211.0" styleClass="custom-font" stylesheets="@styleforROBOTO.css" text="Spam/Block">
+         <font>
+            <Font name="Roboto Bold" size="69.0" />
+         </font>
+      </Label>
+      <Label layoutX="565.0" layoutY="294.0" styleClass="custom-font-even-smaller" stylesheets="@styleforROBOTO.css" text="List/Remove user">
+         <font>
+            <Font name="Roboto Bold" size="19.0" />
+         </font>
+      </Label>
+      <Button layoutX="122.0" layoutY="53.0" mnemonicParsing="false" onAction="#Backtomenu" opacity="0.82" prefHeight="33.0" prefWidth="35.0" style="-fx-background-radius: 10; -fx-background-color: #de7259; -fx-label-padding: 30; -fx-padding: -40;" styleClass="custom-font" stylesheets="@style.css" text="o">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="Follow The Arrow" size="22.0" />
+         </font>
+      </Button>
+      <Button fx:id="spamAdder" layoutX="468.0" layoutY="422.0" mnemonicParsing="false" onAction="#spamAdd" opacity="0.82" prefHeight="42.0" prefWidth="159.0" style="-fx-background-radius: 10; -fx-background-color: #de7259;" styleClass="custom-font-even-smaller" stylesheets="@styleforROBOTO.css" text="SpamList">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="Roboto Bold" size="20.0" />
+         </font>
+      </Button>
+      <Button layoutX="950.0" layoutY="41.0" mnemonicParsing="false" onAction="#private1" prefHeight="25.0" prefWidth="59.0" style="-fx-background-color: #EDB388; -fx-background-radius: 8;" text="Privacy">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button fx:id="spamchanger" layoutX="1069.0" layoutY="41.0" mnemonicParsing="false" style="-fx-background-color: #EDB388; -fx-background-radius: 8;" text="Filter">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="spamRemover" layoutX="468.0" layoutY="484.0" mnemonicParsing="false" onAction="#spamRemove" opacity="0.82" prefHeight="42.0" prefWidth="159.0" style="-fx-background-radius: 10; -fx-background-color: #de7259;" styleClass="custom-font-even-smaller" stylesheets="@styleforROBOTO.css" text="UnSpam">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="Roboto Bold" size="20.0" />
+         </font>
+      </Button>
+      <Label fx:id="warner" layoutX="454.0" layoutY="326.0" prefHeight="17.0" prefWidth="381.0" textFill="RED" />
+      <TextField fx:id="userinput" layoutX="447.0" layoutY="346.0" opacity="0.47" prefHeight="51.0" prefWidth="388.0" promptText="User's Email" style="-fx-background-radius: 12; -fx-opacity: 0.47;" styleClass="custom-font-smaller" stylesheets="@styleforROBOTO.css">
+         <font>
+            <Font name="Roboto Bold" size="26.0" />
+         </font>
+      </TextField>
+      <Button layoutX="1018.0" layoutY="41.0" mnemonicParsing="false" onAction="#labels" prefHeight="25.0" prefWidth="51.0" style="-fx-background-color: #EDB388; -fx-background-radius: 8;" text="Labels">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="647.0" layoutY="422.0" mnemonicParsing="false" onAction="#blockAdd" opacity="0.82" prefHeight="42.0" prefWidth="159.0" style="-fx-background-radius: 10; -fx-background-color: #de7259;" styleClass="custom-font-even-smaller" stylesheets="@styleforROBOTO.css" text="BlockList">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="Roboto Bold" size="20.0" />
+         </font>
+      </Button>
+      <Button layoutX="647.0" layoutY="484.0" mnemonicParsing="false" onAction="#blockRemove" opacity="0.82" prefHeight="42.0" prefWidth="159.0" style="-fx-background-radius: 10; -fx-background-color: #de7259;" styleClass="custom-font-even-smaller" stylesheets="@styleforROBOTO.css" text="UnBlock">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="Roboto Bold" size="20.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

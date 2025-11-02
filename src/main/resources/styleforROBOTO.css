@@ -1,0 +1,57 @@
+     @font-face
+     {
+         font-family: 'Roboto';
+         src: url('fonts/Roboto-Bold.ttf');
+     }
+
+     .custom-font
+     {
+         -fx-font-family: 'Roboto';
+         -fx-font-size: 69px;
+     }
+
+     .custom-font-smaller
+     {
+         -fx-font-family: 'Roboto';
+         -fx-font-size: 26px;
+     }
+
+     .custom-font-even-smaller
+     {
+         -fx-font-family: 'Roboto';
+         -fx-font-size: 19px;
+     }
+
+     .custom-font-medium
+     {
+         -fx-font-family: 'Roboto';
+         -fx-font-size: 45px;
+     }
+     .custom-font-smallest
+     {
+        -fx-font-family: 'Roboto';
+        -fx-font-size: 12px;
+     }
+
+     .custom-font-search
+     {
+         -fx-font-family : 'Roboto';
+         -fx-font-size: 20px;
+         -fx-background-color: "#e17c65";
+         -fx-border-radius: 8px;
+         -fx-opacity: 90;
+         -fx-prompt-text-fill: "#000000";
+         -fx-text-fill: "#000000";
+     }
+
+     .custom-font-email-button
+     {
+        -fx-background-color: #ffc885;
+        -fx-border-color: #9c754f;
+        -fx-font-family : 'Roboto';
+     }
+
+     .custom-font-color-black
+     {
+        -fx-text-fill: #000000;
+     }

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ldal.pigeonapp.WelcomeScene">
+   <children>
+      <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@loginBackgroud.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="434.0" layoutY="180.0" prefHeight="101.0" prefWidth="454.0" styleClass="custom-font-medium" stylesheets="@styleforROBOTO.css" text="Welcome to Pigeon!" textAlignment="CENTER" textOverrun="CLIP">
+         <font>
+            <Font name="Roboto Bold" size="45.0" />
+         </font>
+      </Label>
+      <Button fx:id="loginButton" layoutX="576.0" layoutY="329.0" mnemonicParsing="false" onAction="#LoginButtonEvent" opacity="0.82" prefHeight="47.0" prefWidth="132.0" style="-fx-background-radius: 10; -fx-background-color: #de7259;" styleClass="custom-font-even-smaller" stylesheets="@styleforROBOTO.css" text="Log In">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="Roboto Bold" size="20.0" />
+         </font>
+      </Button>
+      <Label fx:id="warning" layoutX="496.0" layoutY="293.0" stylesheets="@styleforROBOTO.css" textFill="#89171c">
+         <font>
+            <Font name="Roboto Italic" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="518.0" layoutY="291.0" prefHeight="38.0" prefWidth="286.0" styleClass="custom-font-even-smaller" stylesheets="@styleforROBOTO.css" text="Already familiar with Pigeon?" textAlignment="CENTER" textOverrun="CLIP">
+         <font>
+            <Font name="Roboto Bold" size="15.0" />
+         </font>
+      </Label>
+      <Button fx:id="signUpButton" layoutX="573.0" layoutY="478.0" mnemonicParsing="false" onAction="#SignUpButton" opacity="0.82" prefHeight="47.0" prefWidth="138.0" style="-fx-background-radius: 10; -fx-background-color: #de7259;" styleClass="custom-font-even-smaller" stylesheets="@styleforROBOTO.css" text="Sign Up">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="Roboto Bold" size="20.0" />
+         </font>
+      </Button>
+      <Label layoutX="565.0" layoutY="443.0" prefHeight="29.0" prefWidth="286.0" styleClass="custom-font-even-smaller" stylesheets="@styleforROBOTO.css" text="New around here?" textAlignment="CENTER" textOverrun="CLIP">
+         <font>
+            <Font name="Roboto Bold" size="17.0" />
+         </font>
+      </Label>
+      <Button layoutX="588.0" layoutY="691.0" mnemonicParsing="false" onAction="#sqlsetuper" prefHeight="25.0" prefWidth="108.0" style="-fx-background-color: transparent;" text="Set up sql server" />
+      <Label fx:id="warner" layoutX="518.0" layoutY="273.0" prefHeight="17.0" prefWidth="470.0" />
+   </children>
+</AnchorPane>

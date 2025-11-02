@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="654.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ldal.pigeonapp.CustomLabelsScene">
+   <children>
+      <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@settingsBG.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="122.0" layoutY="53.0" mnemonicParsing="false" onAction="#Backtomenu" opacity="0.82" prefHeight="33.0" prefWidth="35.0" style="-fx-background-radius: 10; -fx-background-color: #de7259; -fx-label-padding: 30; -fx-padding: -40;" styleClass="custom-font" stylesheets="@style.css" text="o">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="Follow The Arrow" size="22.0" />
+         </font>
+      </Button>
+      <Button layoutX="257.0" layoutY="420.0" mnemonicParsing="false" onAction="#emailAdd" opacity="0.82" prefHeight="42.0" prefWidth="159.0" style="-fx-background-radius: 10; -fx-background-color: #de7259;" styleClass="custom-font-even-smaller" stylesheets="@styleforROBOTO.css" text="Add to label">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="Roboto Bold" size="20.0" />
+         </font>
+      </Button>
+      <Button layoutX="1017.0" layoutY="41.0" mnemonicParsing="false" onAction="#private1" style="-fx-background-color: #EDB388; -fx-background-radius: 8;" text="Labels">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button layoutX="1069.0" layoutY="41.0" mnemonicParsing="false" onAction="#spamChanger" style="-fx-background-color: #EDB388; -fx-background-radius: 8;" text="Filter">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button layoutX="427.0" layoutY="420.0" mnemonicParsing="false" onAction="#emailRemove" opacity="0.82" prefHeight="42.0" prefWidth="159.0" style="-fx-background-radius: 10; -fx-background-color: #de7259;" styleClass="custom-font-even-smaller" stylesheets="@styleforROBOTO.css" text="Remove">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="Roboto Bold" size="20.0" />
+         </font>
+      </Button>
+      <Label fx:id="warner" layoutX="230.0" layoutY="394.0" prefHeight="17.0" prefWidth="388.0" textFill="RED" />
+      <TextField fx:id="emailInput" layoutX="227.0" layoutY="339.0" opacity="0.47" prefHeight="51.0" prefWidth="388.0" promptText="User's Email" style="-fx-background-radius: 12; -fx-opacity: 0.47;" styleClass="custom-font-smaller" stylesheets="@styleforROBOTO.css">
+         <font>
+            <Font name="Roboto Bold" size="26.0" />
+         </font>
+      </TextField>
+      <Button layoutX="949.0" layoutY="41.0" mnemonicParsing="false" onAction="#private1" prefHeight="25.0" prefWidth="58.0" style="-fx-background-color: #EDB388; -fx-background-radius: 8;" text="Privacy">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Label layoutX="850.0" layoutY="112.0" styleClass="custom-font-smaller" stylesheets="@styleforROBOTO.css" text="Current Label" textAlignment="CENTER">
+         <font>
+            <Font name="Roboto Bold" size="23.0" />
+         </font>
+      </Label>
+      <Rectangle fill="#de735bb4" height="492.0" layoutX="718.0" layoutY="156.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" style="-fx-arc-height: 30; -fx-arc-width: 30;" width="421.0">
+         <effect>
+            <DropShadow height="46.9" radius="24.535" width="53.24">
+               <color>
+                  <Color opacity="0.2442748099565506" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Rectangle>
+      <ScrollPane hbarPolicy="NEVER" layoutX="735.0" layoutY="200.0" prefHeight="440.0" prefWidth="388.0" style="-fx-background-color: transparent; -fx-background: transparent;">
+         <content>
+            <VBox fx:id="emailsVbox" prefWidth="387.0" />
+         </content>
+      </ScrollPane>
+      <Label layoutX="308.0" layoutY="212.0" styleClass="custom-font" stylesheets="@styleforROBOTO.css" text="Labels">
+         <font>
+            <Font name="Roboto Bold" size="69.0" />
+         </font>
+      </Label>
+      <Button layoutX="729.0" layoutY="164.0" mnemonicParsing="false" onAction="#prevLabel" opacity="0.82" prefHeight="33.0" prefWidth="35.0" style="-fx-background-radius: 10; -fx-background-color: #f56a4e; -fx-label-padding: 30; -fx-padding: -40;" styleClass="custom-font" stylesheets="@style.css" text="o">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="Follow The Arrow" size="22.0" />
+         </font>
+      </Button>
+      <Label fx:id="currLabelName" alignment="CENTER" contentDisplay="TOP" layoutX="851.0" layoutY="168.0" prefHeight="24.0" prefWidth="156.0" styleClass="custom-font-even-smaller" stylesheets="@styleforROBOTO.css" text="None" textAlignment="CENTER">
+         <font>
+            <Font name="Roboto Bold" size="19.0" />
+         </font>
+      </Label>
+      <Button fx:id="nextLabelButton" layoutX="1092.0" layoutY="164.0" mnemonicParsing="false" onAction="#nextLabel" opacity="0.82" prefHeight="33.0" prefWidth="35.0" style="-fx-background-radius: 10; -fx-background-color: #f56a4e; -fx-label-padding: 30; -fx-padding: -40;" styleClass="custom-font" stylesheets="@style.css" text="T">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="Follow The Arrow" size="22.0" />
+         </font>
+      </Button>
+      <AnchorPane fx:id="newLabelContextMenu" layoutX="764.0" layoutY="211.0" prefHeight="191.0" prefWidth="388.0">
+         <children>
+            <Rectangle fill="#e4715a" height="145.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" style="-fx-arc-height: 30; -fx-arc-width: 30;" width="336.0">
+               <effect>
+                  <DropShadow height="52.45" radius="25.9225" width="53.24">
+                     <color>
+                        <Color opacity="0.049618322402238846" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Rectangle>
+            <Label layoutX="124.0" layoutY="14.0" styleClass="custom-font-even-smaller" stylesheets="@styleforROBOTO.css" text="New Label" textAlignment="CENTER">
+               <font>
+                  <Font name="Roboto Bold" size="19.0" />
+               </font>
+            </Label>
+            <TextField fx:id="labelNameInput" layoutX="46.0" layoutY="46.0" opacity="0.47" prefHeight="33.0" prefWidth="245.0" promptText="Label Name" style="-fx-background-radius: 12; -fx-opacity: 0.47;" styleClass="custom-font-even-smaller" stylesheets="@styleforROBOTO.css">
+               <font>
+                  <Font name="Roboto Bold" size="28.0" />
+               </font>
+            </TextField>
+            <Button layoutX="11.0" layoutY="10.0" mnemonicParsing="false" onAction="#closeLabelCreator" opacity="0.82" prefHeight="25.0" prefWidth="24.0" style="-fx-background-radius: 8; -fx-background-color: #cd574c; -fx-label-padding: 30; -fx-padding: -40;" styleClass="custom-font-even-smaller" stylesheets="@styleforROBOTO.css" text="x">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="Roboto" size="22.0" />
+               </font>
+            </Button>
+            <Button layoutX="189.0" layoutY="96.0" mnemonicParsing="false" onAction="#createLabel" opacity="0.82" prefHeight="25.0" prefWidth="102.0" style="-fx-background-radius: 3; -fx-background-color: #cd574c;" styleClass="custom-font-smallest" stylesheets="@styleforROBOTO.css" text="Create Label">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="Roboto Bold" size="20.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <Label fx:id="addToLabelText" alignment="CENTER" contentDisplay="TOP" layoutX="278.0" layoutY="295.0" prefHeight="24.0" prefWidth="265.0" styleClass="custom-font-even-smaller" stylesheets="@styleforROBOTO.css" text="Add new emails to LabelName">
+         <font>
+            <Font name="Roboto Bold" size="19.0" />
+         </font>
+      </Label>
+      <Button layoutX="337.0" layoutY="475.0" mnemonicParsing="false" onAction="#labelDelete" opacity="0.82" prefHeight="42.0" prefWidth="159.0" style="-fx-background-radius: 10; -fx-background-color: #de7259;" styleClass="custom-font-even-smaller" stylesheets="@styleforROBOTO.css" text="Delete label">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="Roboto Bold" size="20.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

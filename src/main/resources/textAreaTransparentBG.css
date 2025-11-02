@@ -1,0 +1,14 @@
+.text-area .content {
+
+
+   -fx-background-color: transparent ;
+
+
+}
+
+.text-area .placeholder .label {
+         -fx-text-fill: dark_gray;
+         -fx-font-family: 'roboto';
+         -fx-font-weight: bold;
+
+}

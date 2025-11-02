@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ldal.pigeonapp.SettingsScene">
+   <children>
+      <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@settingsBG.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="540.0" layoutY="70.0" styleClass="custom-font" stylesheets="@styleforROBOTO.css" text="Privacy">
+         <font>
+            <Font name="Roboto Bold" size="69.0" />
+         </font>
+      </Label>
+      <Label layoutX="287.0" layoutY="249.0" prefHeight="24.0" prefWidth="159.0" styleClass="custom-font-even-smaller" stylesheets="@styleforROBOTO.css" text="Change password">
+         <font>
+            <Font name="Roboto Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label fx:id="warner" layoutX="446.0" layoutY="350.0" prefHeight="21.0" prefWidth="340.0" textFill="#ff1414">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Button layoutX="122.0" layoutY="53.0" mnemonicParsing="false" onAction="#Backtomenu" opacity="0.82" prefHeight="33.0" prefWidth="35.0" style="-fx-background-radius: 10; -fx-background-color: #de7259; -fx-label-padding: 30; -fx-padding: -40;" styleClass="custom-font" stylesheets="@style.css" text="o">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="Follow The Arrow" size="22.0" />
+         </font>
+      </Button>
+      <Button fx:id="loginbutton" layoutX="288.0" layoutY="514.0" mnemonicParsing="false" onAction="#changepassword" opacity="0.82" prefHeight="42.0" prefWidth="159.0" style="-fx-background-radius: 10; -fx-background-color: #de7259;" styleClass="custom-font-even-smaller" stylesheets="@styleforROBOTO.css" text="Proceed">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="Roboto Bold" size="20.0" />
+         </font>
+      </Button>
+      <PasswordField fx:id="currentpassword" layoutX="173.0" layoutY="279.0" opacity="0.47" prefHeight="52.0" prefWidth="388.0" promptText="Current password" style="-fx-background-radius: 12;" styleClass="custom-font-smaller" stylesheets="@styleforROBOTO.css">
+         <font>
+            <Font name="Roboto Bold" size="26.0" />
+         </font>
+      </PasswordField>
+      <PasswordField fx:id="newpassword" layoutX="173.0" layoutY="385.0" opacity="0.47" prefHeight="52.0" prefWidth="388.0" promptText="New password" style="-fx-background-radius: 12;" styleClass="custom-font-smaller" stylesheets="@styleforROBOTO.css">
+         <font>
+            <Font name="Roboto Bold" size="26.0" />
+         </font>
+      </PasswordField>
+      <PasswordField fx:id="newpasswordconf" layoutX="173.0" layoutY="446.0" opacity="0.47" prefHeight="52.0" prefWidth="388.0" promptText="Confirm new password" style="-fx-background-radius: 12;" styleClass="custom-font-smaller" stylesheets="@styleforROBOTO.css">
+         <font>
+            <Font name="Roboto Bold" size="26.0" />
+         </font>
+      </PasswordField>
+      <Button layoutX="950.0" layoutY="41.0" mnemonicParsing="false" style="-fx-background-color: #EDB388; -fx-background-radius: 8;" text="Privacy">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="1069.0" layoutY="41.0" mnemonicParsing="false" onAction="#spamChanger" style="-fx-background-color: #EDB388; -fx-background-radius: 8;" text="Filter">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button layoutX="1017.0" layoutY="41.0" mnemonicParsing="false" onAction="#labels" prefHeight="25.0" prefWidth="53.0" style="-fx-background-color: #EDB388; -fx-background-radius: 8;" text="Labels">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Label layoutX="883.0" layoutY="249.0" prefHeight="24.0" prefWidth="93.0" styleClass="custom-font-even-smaller" stylesheets="@styleforROBOTO.css" text="Link gmail">
+         <font>
+            <Font name="Roboto Bold" size="19.0" />
+         </font>
+      </Label>
+      <Button layoutX="851.0" layoutY="456.0" mnemonicParsing="false" onAction="#linkUp" opacity="0.82" prefHeight="42.0" prefWidth="159.0" style="-fx-background-radius: 10; -fx-background-color: #de7259;" styleClass="custom-font-even-smaller" stylesheets="@styleforROBOTO.css" text="Link">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="Roboto Bold" size="20.0" />
+         </font>
+      </Button>
+      <PasswordField fx:id="verificationCoder" layoutX="736.0" layoutY="388.0" opacity="0.47" prefHeight="52.0" prefWidth="388.0" promptText="Verification Code" style="-fx-background-radius: 12;" styleClass="custom-font-smaller" stylesheets="@styleforROBOTO.css">
+         <font>
+            <Font name="Roboto Bold" size="26.0" />
+         </font>
+      </PasswordField>
+      <Label layoutX="736.0" layoutY="271.0" text="This will re-write your gmail if you have already linked it" textFill="WHITE" />
+      <TextField fx:id="gmailer" layoutX="736.0" layoutY="289.0" opacity="0.47" prefWidth="230.0" promptText="Gmail" style="-fx-background-radius: 12;" styleClass="custom-font-smaller" stylesheets="@styleforROBOTO.css" />
+      <Button layoutX="954.0" layoutY="288.0" mnemonicParsing="false" onAction="#codeSender" opacity="0.82" prefHeight="52.0" prefWidth="159.0" style="-fx-background-radius: 10; -fx-background-color: #de7259;" styleClass="custom-font-even-smaller" stylesheets="@styleforROBOTO.css" text="Send Code">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="Roboto Bold" size="20.0" />
+         </font>
+      </Button>
+      <Label fx:id="warning" layoutX="739.0" layoutY="352.0" prefHeight="17.0" prefWidth="382.0" textFill="WHITE" />
+   </children>
+</AnchorPane>
