@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 public class SQLServer
 {
+    public static SQLServer instance;
     String url = "jdbc:mysql://sql7.freesqldatabase.com:3306/sql7805733";
     static String userName = "sql7805733";
     static String password = "5Ku4wg8YE3";
@@ -39,6 +40,7 @@ public class SQLServer
     {
         try
         {
+            instance = this;
             String userName = "sql7805733";
             String password = "5Ku4wg8YE3";
             connection = DriverManager.getConnection(url, userName, password);
@@ -450,5 +452,10 @@ public class SQLServer
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public static SQLServer getInstance()
+    {
+        return instance;
     }
 }

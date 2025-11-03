@@ -16,7 +16,7 @@ public class Client implements Serializable
 
     File pigeon = new File(filePath);
 
-    private static SQLServer sqlServer = null;
+    //private static SQLServer sqlServer = null;
 
     private static String labelPath = "";
 
@@ -352,7 +352,7 @@ public class Client implements Serializable
     }
 
     public static void login(String username){
-        user = sqlServer.logIn(username);
+        user = SQLServer.instance.logIn(username);
         labelPath = filePath + "\\labels_" + user.getLogin() + ".txt";
 
     }
@@ -383,9 +383,9 @@ public class Client implements Serializable
             try
             {
                 User sender = user;
-                User receiver = sqlServer.userFromEmail(email.getReceiver().getEmail());
+                User receiver = SQLServer.instance.userFromEmail(email.getReceiver().getEmail());
 
-                sqlServer.sendEmail(sender.getId(), receiver.getId(), email.getText(), email.getSubject());
+                SQLServer.instance.sendEmail(sender.getId(), receiver.getId(), email.getText(), email.getSubject());
 
                 //Sentebshi shenaxva
                 email.setDateTime(Email.dateTimeToString(LocalDateTime.now()));
@@ -411,7 +411,7 @@ public class Client implements Serializable
 
     public static ArrayList<Email> getInbox()
     {
-            return sqlServer.getInbox(user.getId());
+            return SQLServer.instance.getInbox(user.getId());
     }
 
     public static ArrayList<Email> getDrafts()
@@ -556,7 +556,7 @@ public class Client implements Serializable
     }
 
     public static SQLServer getSQLServer() {
-        return sqlServer;
+        return SQLServer.instance;
     }
 
     public static boolean isRememberMe() {
@@ -571,7 +571,9 @@ public class Client implements Serializable
         Client.customLabels = customLabels;
     }
 
+    /*
     public static void setSqlServer(SQLServer sqlServer) {
         Client.sqlServer = sqlServer;
     }
+    */
 }

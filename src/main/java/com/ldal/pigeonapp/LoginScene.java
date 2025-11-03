@@ -19,7 +19,7 @@ import java.util.ResourceBundle;
 public class LoginScene implements Initializable
 {
     private PassHasher passHasher;
-    private SQLServer sqlServer = new SQLServer();
+    //private SQLServer sqlServer = new SQLServer();
     @FXML
     public Button loginbutton;
     @FXML
@@ -47,7 +47,7 @@ public class LoginScene implements Initializable
             WarnerClass.WarnerError(warning, "Please input information", false);
         } else
         {
-            if (!sqlServer.validateLogin(username1) || !sqlServer.validatePassword(username1, passHasher.hasher(password1)))
+            if (SQLServer.instance.validateLogin(username1) || !SQLServer.instance.validatePassword(username1, passHasher.hasher(password1)))
             {
                 WarnerClass.WarnerError(warning, "Invalid information", false);
                 return;

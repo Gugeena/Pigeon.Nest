@@ -37,7 +37,7 @@ public class ProfileScene implements Initializable
     private Label dateCreatedDeclarer;
     @FXML
     private Label lastLogedinDeclarer;
-    SQLServer sqlServer = new SQLServer();
+    //SQLServer sqlServer = new SQLServer();
     String[] SplashScreensTexts;
     @FXML
     private Label SplashScreenTexter;
@@ -85,7 +85,7 @@ public class ProfileScene implements Initializable
         mailDeclarer.setText("Email: " + Client.getUser().getEmail());
         usernameDeclarer.setText("Username: " + Client.getUser().getLogin());
         IdDeclarer.setText("Account ID: " + Client.getUser().getId());
-        String dateCreated = sqlServer.getDateCreatedFromID(Client.getUser().getLogin());
+        String dateCreated = SQLServer.instance.getDateCreatedFromID(Client.getUser().getLogin());
         dateCreatedDeclarer.setText("Date Created: " + dateCreated);
         lastLogedinDeclarer.setText("Logged In Since: " + LocalDateTimer.localDateTime());
 

@@ -19,6 +19,7 @@ import java.util.regex.Pattern;
 public class PigeonApplication extends Application
 {
     static String dateTimeSincer;
+    SQLServer sqlServer = new SQLServer();
     @Override
     public void start(Stage stage) throws IOException
     {
@@ -26,10 +27,10 @@ public class PigeonApplication extends Application
         Parent root;
         new Client();
         Client.loadSQLInfo();
-        if(SQLServer.password != null && SQLServer.userName != null)
-        {
-            Client.setSqlServer(new SQLServer());
-        }
+        //if(SQLServer.password != null && SQLServer.userName != null)
+        //{
+            //Client.setSqlServer(new SQLServer());
+        //}
         if(Client.getUser() != null && Client.isRememberMe())
         {
             //root = FXMLLoader.load(PigeonApplication.class.getResource("/LoginScene.fxml"));

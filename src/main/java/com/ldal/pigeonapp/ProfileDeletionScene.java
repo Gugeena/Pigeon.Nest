@@ -23,7 +23,7 @@ public class ProfileDeletionScene
     private CheckBox iAmSurer;
     @FXML
     private Label warning;
-    SQLServer sqlServer = new SQLServer();
+    //SQLServer sqlServer = new SQLServer();
     Client client = new Client();
     PassHasher passHasher = new PassHasher();
     @FXML
@@ -41,10 +41,10 @@ public class ProfileDeletionScene
     @FXML
     public void Delete(ActionEvent event) throws IOException
     {
-        if(sqlServer.validatePassword(Client.getUser().getLogin(), passHasher.hasher(password.getText())) &&
+        if(SQLServer.instance.validatePassword(Client.getUser().getLogin(), passHasher.hasher(password.getText())) &&
                 password.getText().equals(passwordconf.getText()) && !password.getText().isEmpty() && !passwordconf.getText().isEmpty() && iAmSurer.isSelected())
         {
-            sqlServer.deleteAccount(Client.getUser().getLogin());
+            SQLServer.instance.deleteAccount(Client.getUser().getLogin());
             Client.setRememberMe(false);
             client.saveSettings();
 
@@ -53,7 +53,7 @@ public class ProfileDeletionScene
             Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
             stage.setScene(scene);
         }
-        else if(!sqlServer.validatePassword(Client.getUser().getLogin(), passHasher.hasher(password.getText())))
+        else if(!SQLServer.instance.validatePassword(Client.getUser().getLogin(), passHasher.hasher(password.getText())))
         {
             warning.setText("Invalid password");
             warning.setStyle("-fx-text-fill: red;");

@@ -27,7 +27,7 @@ public class ForgottenChanger
     private Label warner;
     @FXML
     private Label warner1;
-    SQLServer sqlServer = new SQLServer();
+    //SQLServer sqlServer = new SQLServer();
     PassHasher passHasher = new PassHasher();
     String newRecoverypass;
     @FXML
@@ -45,15 +45,15 @@ public class ForgottenChanger
     @FXML
     public void changepassword(ActionEvent event)
     {
-        if(sqlServer.validateLogin(loginer.getText()) && User.validatePassword(newpassword.getText()) && sqlServer.validateRecoveryPass(loginer.getText(), backuppassword.getText()) && newpasswordconf.getText().equals(newpassword.getText()))
+        if(SQLServer.instance.validateLogin(loginer.getText()) && User.validatePassword(newpassword.getText()) && SQLServer.instance.validateRecoveryPass(loginer.getText(), backuppassword.getText()) && newpasswordconf.getText().equals(newpassword.getText()))
         {
-            sqlServer.changePassword(passHasher.hasher(newpassword.getText()), loginer.getText());
+            SQLServer.instance.changePassword(passHasher.hasher(newpassword.getText()), loginer.getText());
             newRecoverypass = passHasher.backuppassword();
-            sqlServer.changeRecoverypass(newRecoverypass, loginer.getText());
+            SQLServer.instance.changeRecoverypass(newRecoverypass, loginer.getText());
             WarnerClass.WarnerError(warner, "Password changed successfully", true);
             WarnerClass.WarnerError(warner1, "new recoverypass: " + newRecoverypass, true);
         }
-        else if(!sqlServer.validateRecoveryPass(loginer.getText(), backuppassword.getText()))
+        else if(!SQLServer.instance.validateRecoveryPass(loginer.getText(), backuppassword.getText()))
         {
             WarnerClass.WarnerError(warner, "Invalid recoveryPass", false);
         }
@@ -72,23 +72,23 @@ public class ForgottenChanger
             return;
         }
 
-        if(!sqlServer.validateLogin(loginer.getText()))
+        if(!SQLServer.instance.validateLogin(loginer.getText()))
         {
             WarnerClass.WarnerError(warner2, "Invalid user", false);
             return;
         }
-        else if(!sqlServer.checkerGmail(loginer.getText()))
+        else if(!SQLServer.instance.checkerGmail(loginer.getText()))
         {
             WarnerClass.WarnerError(warner2, "Account does not have gmail linked", false);
             return;
         }
-        else if(sqlServer.checkerGmail(loginer.getText()))
+        else if(SQLServer.instance.checkerGmail(loginer.getText()))
         {
             new Thread(() ->
             {
                 String newRecoveryPassword = passHasher.backuppassword();
-                sqlServer.changeRecoverypass(newRecoveryPassword, loginer.getText());
-                GMAILEmailsender.EmailSender(sqlServer.getterGmail(loginer.getText()), newRecoveryPassword, "", 3,"");
+                SQLServer.instance.changeRecoverypass(newRecoveryPassword, loginer.getText());
+                GMAILEmailsender.EmailSender(SQLServer.instance.getterGmail(loginer.getText()), newRecoveryPassword, "", 3,"");
             }).start();
             WarnerClass.WarnerError(warner2, "Email Sent", true);
         }

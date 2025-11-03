@@ -27,7 +27,7 @@ import java.util.ResourceBundle;
 public class SignUpScene implements Initializable
 {
     private PassHasher passHasher;
-    private SQLServer sqlServer = new SQLServer();
+    //private SQLServer sqlServer = new SQLServer();
 
     private User user;
     @FXML
@@ -85,13 +85,13 @@ public class SignUpScene implements Initializable
         }
         else
         {
-            if (User.validateEmail(email1) && User.validateLogin(username1) && User.validatePassword(password1) && !sqlServer.checkDuplicateLogin(username1) && !sqlServer.checkDuplicateEmail(email1))
+            if (User.validateEmail(email1) && User.validateLogin(username1) && User.validatePassword(password1) && !SQLServer.instance.checkDuplicateLogin(username1) && !SQLServer.instance.checkDuplicateEmail(email1))
             {
                 recoverypass = passHasher.backuppassword();
 
                 String formatted = LocalDateTimer.localDateTime();
 
-                sqlServer.SignUp(username1, email1 + "@pigeon.nest", passHasher.hasher(password1), recoverypass, formatted);
+                SQLServer.instance.SignUp(username1, email1 + "@pigeon.nest", passHasher.hasher(password1), recoverypass, formatted);
                 warning.setText("Successfully signed up, recoverypass: " + recoverypass);
                 WarnerClass.WarnerError(warning, "Successfully signed up, recoverypass: " + recoverypass, true);
 
@@ -131,11 +131,11 @@ public class SignUpScene implements Initializable
                 }
                 WarnerClass.WarnerError(warning, error, false);
             }
-            else if(sqlServer.checkDuplicateLogin(username1))
+            else if(SQLServer.instance.checkDuplicateLogin(username1))
             {
                 WarnerClass.WarnerError(warning, "Duplicate login", false);
             }
-            else if(sqlServer.checkDuplicateEmail(email1))
+            else if(SQLServer.instance.checkDuplicateEmail(email1))
             {
                 WarnerClass.WarnerError(warning, "Duplicate email", false);
             }
@@ -185,7 +185,7 @@ public class SignUpScene implements Initializable
             {
                 new Thread(() ->
                 {
-                    sqlServer.setGmail(gmailer.getText(), username.getText());
+                    SQLServer.instance.setGmail(gmailer.getText(), username.getText());
                     GMAILEmailsender.EmailSender(gmailer.getText(), recoverypass, "", 0, username.getText());
                 }).start();
                 WarnerClass.WarnerError(warner, "Your gmail is linked up!", true);

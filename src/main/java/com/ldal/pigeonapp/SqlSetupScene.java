@@ -34,7 +34,7 @@ public class SqlSetupScene
             {
                 SQLServer.userName = username.getText();
                 SQLServer.password = password.getText();
-                SQLServer sqlServer = new SQLServer();
+                //SQLServer sqlServer = new SQLServer();
                 WarnerClass.WarnerError(warner, "Connection established", true);
                 if(remmemberOfSQL.isSelected())
                 {

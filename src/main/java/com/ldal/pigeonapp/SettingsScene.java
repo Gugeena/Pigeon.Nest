@@ -21,7 +21,7 @@ public class SettingsScene
     @FXML
     private TextField newpasswordconf;
     PassHasher passHasher = new PassHasher();
-    SQLServer sqlServer = new SQLServer();
+    //SQLServer sqlServer = new SQLServer();
     @FXML
     private Label warner;
     @FXML
@@ -38,9 +38,9 @@ public class SettingsScene
     @FXML
     public void changepassword(ActionEvent event)
     {
-        if(sqlServer.validatePassword(Client.getUser().getLogin(), passHasher.hasher(currentpassword.getText())) && newpassword.getText().equals(newpasswordconf.getText()) && User.validatePassword(newpassword.getText()))
+        if(SQLServer.instance.validatePassword(Client.getUser().getLogin(), passHasher.hasher(currentpassword.getText())) && newpassword.getText().equals(newpasswordconf.getText()) && User.validatePassword(newpassword.getText()))
         {
-            sqlServer.changePassword(passHasher.hasher(newpassword.getText()), Client.getUser().getLogin());
+            SQLServer.instance.changePassword(passHasher.hasher(newpassword.getText()), Client.getUser().getLogin());
             warner.setStyle("-fx-text-fill: green");
             warner.setText("Password changed successfully");
             Client.setRememberMe(false);
@@ -120,7 +120,7 @@ public class SettingsScene
             {
                 new Thread(() ->
                 {
-                    sqlServer.setGmail(gmailer.getText(), Client.getUser().getLogin());
+                    SQLServer.instance.setGmail(gmailer.getText(), Client.getUser().getLogin());
                     GMAILEmailsender.EmailSender(gmailer.getText(), "", "", 2, Client.getUser().getLogin());
                 }).start();
                 WarnerClass.WarnerError(warning, "Your gmail is linked up!", true);
