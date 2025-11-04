@@ -127,7 +127,7 @@ public class SignUpScene implements Initializable
                 }
                 else
                 {
-                    error = "Invalid character or restricted word present in username";
+                    error = "Invalid password length";
                 }
                 WarnerClass.WarnerError(warning, error, false);
             }

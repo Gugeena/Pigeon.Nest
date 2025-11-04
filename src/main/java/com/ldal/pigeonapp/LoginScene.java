@@ -47,8 +47,9 @@ public class LoginScene implements Initializable
             WarnerClass.WarnerError(warning, "Please input information", false);
         } else
         {
-            if (SQLServer.instance.validateLogin(username1) || !SQLServer.instance.validatePassword(username1, passHasher.hasher(password1)))
+            if (!SQLServer.instance.validateLogin(username1) || !SQLServer.instance.validatePassword(username1, passHasher.hasher(password1)))
             {
+                System.out.println("username validation: " + SQLServer.instance.validateLogin(username1) + "; passwordvalidation: " + SQLServer.instance.validatePassword(username1, passHasher.hasher(password1)));
                 WarnerClass.WarnerError(warning, "Invalid information", false);
                 return;
             }

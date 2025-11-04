@@ -41,8 +41,6 @@ public class SQLServer
         try
         {
             instance = this;
-            String userName = "sql7805733";
-            String password = "5Ku4wg8YE3";
             connection = DriverManager.getConnection(url, userName, password);
             statement = connection.createStatement();
             dbSetup();
@@ -226,7 +224,7 @@ public class SQLServer
             checkPassword.setString(1, login);
             ResultSet dbResult = checkPassword.executeQuery();
             dbResult.next();
-            return c_hashedPass.matches(dbResult.getString("hashedPass"));
+            return c_hashedPass.equals(dbResult.getString("hashedPass"));
 
         } catch (SQLException e) {
             throw new RuntimeException(e);

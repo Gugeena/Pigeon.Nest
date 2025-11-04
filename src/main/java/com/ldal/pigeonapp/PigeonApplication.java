@@ -26,7 +26,6 @@ public class PigeonApplication extends Application
         Scene scene;
         Parent root;
         new Client();
-        Client.loadSQLInfo();
         //if(SQLServer.password != null && SQLServer.userName != null)
         //{
             //Client.setSqlServer(new SQLServer());

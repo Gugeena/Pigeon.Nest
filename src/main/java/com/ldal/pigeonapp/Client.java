@@ -252,23 +252,7 @@ public class Client implements Serializable
             throw new RuntimeException(e);
         }
     }
-    public static boolean loadSQLInfo()
-    {
-        try
-        {
-            BufferedReader bufferedReader = new BufferedReader(new FileReader(filePath + "\\SQLInfo.txt"));
-            SQLServer.userName = bufferedReader.readLine();
-            SQLServer.password = bufferedReader.readLine();
-            bufferedReader.close();
-            return true;
-        }
-        catch (IOException e)
-        {
-            SQLServer.userName = null;
-            SQLServer.password = null;
-            return false;
-        }
-    }
+
     public void loadReceipientsInfo()
     {
         try
