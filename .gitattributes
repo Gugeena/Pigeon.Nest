@@ -5,3 +5,4 @@ C:/Users/User/Documents/Pigeon.Nest/EXE/JRE/lib/modules filter=lfs diff=lfs merg
 EXE/JRE/lib/modules filter=lfs diff=lfs merge=lfs -text
 C:/Users/User/Documents/Pigeon.Nest/EXE/JRE/lib/modules filter=lfs diff=lfs merge=lfs -text
 C:/Users/User/Documents/Pigeon.Nest/Pigeon.NestSetup.exe filter=lfs diff=lfs merge=lfs -text
+Pigeon.NestSetup.exe filter=lfs diff=lfs merge=lfs -text
