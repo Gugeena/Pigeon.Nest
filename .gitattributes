@@ -1,1 +1,6 @@
 EXE/JRE/lib/modules filter=lfs diff=lfs merge=lfs -text
+<<<<<<< HEAD
+C:/Users/User/Documents/Pigeon.Nest/Pigeon.NestSetup.exe filter=lfs diff=lfs merge=lfs -text
+*.exe filter=lfs diff=lfs merge=lfs -text
+=======
+>>>>>>> parent of 3c8a50e (Add Pigeon.NestSetup.exe via Git LFS)
