@@ -1,3 +1,5 @@
 *.exe filter=lfs diff=lfs merge=lfs -text
 EXE/Pigeon.NestSetup.exe filter=lfs diff=lfs merge=lfs -text
 EXE/JRE/lib/modules filter=lfs diff=lfs merge=lfs -text
+JRE/lib/modules/* filter=lfs diff=lfs merge=lfs -text
+JRE/lib/modules filter=lfs diff=lfs merge=lfs -text
