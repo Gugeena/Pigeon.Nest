@@ -1,5 +1,7 @@
 package com.ldal.pigeonapp;
 
+import jakarta.mail.MessagingException;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -163,13 +165,21 @@ public class SignUpScene implements Initializable
         }
         else
         {
+            WarnerClass.WarnerError(warner, "Processing your request...", true);
             new Thread(() ->
             {
                 confcode = passHasher.backuppassword();
                 GMAILEmailsender.EmailSender(gmailer.getText(), "", confcode, 1, "");
                 hasSentCode = true;
+
+                Platform.runLater(() ->
+                {
+                    if (GMAILEmailsender.haswentthrough)
+                        WarnerClass.WarnerError(warner, "If your gmail is valid you should receive your code", true);
+                    else
+                        WarnerClass.WarnerError(warner, "Please try again later", false);
+                });
             }).start();
-            WarnerClass.WarnerError(warner, "If your gmail is valid you should receiver your code", true);
         }
     }
 
