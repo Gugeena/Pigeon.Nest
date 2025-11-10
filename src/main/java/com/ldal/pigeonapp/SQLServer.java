@@ -8,9 +8,9 @@ import java.util.ArrayList;
 public class SQLServer
 {
     public static SQLServer instance;
-    String url = "jdbc:mysql://sql7.freesqldatabase.com:3306/sql7805733";
-    static String userName = "sql7805733";
-    static String password = "5Ku4wg8YE3";
+    String url = "jdbc:mysql://mysql-86c0465-pigeonnest.l.aivencloud.com:14111/defaultdb?ssl-mode=REQUIRED";
+    static String userName = "avnadmin";
+    static String password = "AVNS_ISO9eO57NGRurDcpnGM";
 
     PassHasher passHasher = new PassHasher();
 
@@ -42,6 +42,44 @@ public class SQLServer
         {
             instance = this;
             connection = DriverManager.getConnection(url, userName, password);
+            System.out.println("Connected to MySQL");
+            statement = connection.createStatement();
+            signUpStatement = connection.prepareStatement("Insert into user(login, email, hashedpass, recoverypass, dateCreated) " +
+                    "values(?, ?, ?, ?, ?)");
+
+            checkLogin = connection.prepareStatement("Select id from user where login = ?");
+            checkEmail = connection.prepareStatement("Select gmailRecovery from user where login = ?");
+            checkPigeonEmail = connection.prepareStatement("Select * from user where email = ?");
+            checkBackupPassword = connection.prepareStatement("Select recoveryPass from user where login = ?");
+            checkPassword = connection.prepareStatement("Select hashedPass from user where login = ?");
+            getUserFromLogin = connection.prepareStatement("Select * from user where login = ?");
+            getUserFromEmail = connection.prepareStatement("Select * from user where email = ?");
+            getUserFromID = connection.prepareStatement("Select * from user where id = ?");
+            updatePassword = connection.prepareStatement("update user set hashedPass = ? where login = ?;");
+            removeAccount = connection.prepareStatement("delete from user where login = ?");
+            getDateCreatedFromLogin = connection.prepareStatement("Select dateCreated from user where login = ?");
+            sendEmailNoAttachment = connection.prepareStatement("Insert into mails(senderID, receiverID, emailText, sendTime, subject) " +
+                    "values(?, ?, ?, ?, ?)");
+            getEmailFromID = connection.prepareStatement("select * from mails where receiverID = ? order by id desc");
+            checkGmailFromLogin = connection.prepareStatement("select gmailRecovery from user where login = ?");
+            DeleteInboxFromID = connection.prepareStatement("delete from mails where receiverID = ? and senderID = ?");
+            updateRecoveryPassword = connection.prepareStatement("update user set recoveryPass = ? where login = ?");
+            setGmailFromLogin = connection.prepareStatement("update user set gmailRecovery = ? where login = ?");
+            getGmailFromLogin = connection.prepareStatement("select gmailRecovery from user where login = ?");
+
+            dbSetup();
+        }
+        catch (SQLException e)
+        {
+            instance = null;
+            throw new RuntimeException(e);
+        }
+        /*
+        try
+        {
+            System.setProperty("java.net.preferIPv6Stack", "true");
+            instance = this;
+            connection = DriverManager.getConnection(url, userName, password);
             statement = connection.createStatement();
             dbSetup();
             //statement.execute("use pigeonDB");
@@ -70,8 +108,11 @@ public class SQLServer
             getGmailFromLogin = connection.prepareStatement("select gmailRecovery from user where login = ?");
 
         } catch (SQLException e) {
+            e.printStackTrace();
+            instance = null;
             throw new RuntimeException(e);
         }
+        */
     }
 
     public boolean checkerGmail(String login)
@@ -455,5 +496,17 @@ public class SQLServer
     public static SQLServer getInstance()
     {
         return instance;
+    }
+
+    public boolean isConnected()
+    {
+        try
+        {
+            return connection != null && connection.isValid(1);
+        }
+        catch (SQLException e)
+        {
+            return false;
+        }
     }
 }

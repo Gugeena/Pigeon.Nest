@@ -19,10 +19,18 @@ import java.util.regex.Pattern;
 public class PigeonApplication extends Application
 {
     static String dateTimeSincer;
-    SQLServer sqlServer = new SQLServer();
     @Override
     public void start(Stage stage) throws IOException
     {
+        try
+        {
+            SQLServer sqlServer = new SQLServer();
+        }
+        catch (Exception e)
+        {
+            System.out.println("failed");
+            Client.setRememberMe(false);
+        }
         Scene scene;
         Parent root;
         new Client();
@@ -30,7 +38,7 @@ public class PigeonApplication extends Application
         //{
             //Client.setSqlServer(new SQLServer());
         //}
-        if(Client.getUser() != null && Client.isRememberMe())
+        if(Client.getUser() != null && Client.isRememberMe() && SQLServer.instance != null)
         {
             //root = FXMLLoader.load(PigeonApplication.class.getResource("/LoginScene.fxml"));
             root = FXMLLoader.load(PigeonApplication.class.getResource("/ProfileScene.fxml"));

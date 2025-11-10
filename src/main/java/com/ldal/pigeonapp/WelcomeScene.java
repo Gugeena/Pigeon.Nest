@@ -26,34 +26,40 @@ public class WelcomeScene
     @FXML
     public void LoginButtonEvent(ActionEvent event) throws IOException
     {
-        if(SQLServer.password != null && SQLServer.userName != null && !SQLServer.password.isEmpty() && !SQLServer.userName.isEmpty())
+        if(SQLServer.getInstance() != null)
         {
-            Parent root = FXMLLoader.load(PigeonApplication.class.getResource("/LoginScene.fxml"));
-            Scene scene = new Scene(root);
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(scene);
+            if (SQLServer.password != null && SQLServer.userName != null && !SQLServer.password.isEmpty() && !SQLServer.userName.isEmpty())
+            {
+                Parent root = FXMLLoader.load(PigeonApplication.class.getResource("/LoginScene.fxml"));
+                Scene scene = new Scene(root);
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(scene);
+            }
         }
         else
         {
             warner.setStyle("-fx-text-fill: red;");
-            warner.setText("Please set up the SQL Server first");
+            warner.setText("Connection Failed");
         }
     }
 
     @FXML
     public void SignUpButton(ActionEvent event) throws IOException
     {
-        if(SQLServer.password != null && SQLServer.userName != null && !SQLServer.password.isEmpty() && !SQLServer.userName.isEmpty())
+        if(SQLServer.getInstance() != null)
         {
-            Parent root = FXMLLoader.load(PigeonApplication.class.getResource("/SignUpScene.fxml"));
-            Scene scene = new Scene(root);
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(scene);
-        }
-         else
-        {
-            warner.setStyle("-fx-text-fill: red;");
-            warner.setText("Please set up the SQL Server first");
+            if (SQLServer.password != null && SQLServer.userName != null && !SQLServer.password.isEmpty() && !SQLServer.userName.isEmpty())
+            {
+                Parent root = FXMLLoader.load(PigeonApplication.class.getResource("/SignUpScene.fxml"));
+                Scene scene = new Scene(root);
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(scene);
+            }
+            else
+            {
+                warner.setStyle("-fx-text-fill: red;");
+                warner.setText("Connection Failed");
+            }
         }
     }
 

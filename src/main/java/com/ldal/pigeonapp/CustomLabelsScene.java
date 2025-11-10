@@ -1,5 +1,6 @@
 package com.ldal.pigeonapp;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,6 +17,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -79,26 +81,79 @@ public class CustomLabelsScene implements Initializable {
             Scene scene = new Scene(root);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(scene);
+            if(SQLServer.instance.isConnected())
+            {
+                WarnerClass.WarnerError(warner, "Connection Failed", false);
+                return;
+            }
         } catch (IOException e) {throw new RuntimeException(e);}
     }
 
     @FXML
-    public void emailAdd(ActionEvent actionEvent) {
+    public void emailAdd(ActionEvent actionEvent)
+    {
+        /*
+        new Thread(() ->
+        {
+            //connection
+            boolean connected;
+
+            try {connected = SQLServer.getInstance().isConnected();}
+            catch (Exception e) {connected = false;}
+
+            if(!connected)
+            {
+                Platform.runLater(() -> WarnerClass.WarnerError(warner, "Connection Failed", false));
+                return;
+            }
+
+            //validation
+            String email = emailInput.getText();
+            boolean isValid;
+            isValid = email.isEmpty();
+            if(!isValid)
+            {
+                Platform.runLater(() -> WarnerClass.WarnerError(warner, "Please input information", false));
+                return;
+            }
+            isValid = SQLServer.instance.validatePigeonEmail(email);
+            if(!isValid)
+            {
+                Platform.runLater(() -> WarnerClass.WarnerError(warner, "Invalid user", false));
+                return;
+            }
+            isValid = currLabel.emails.contains(email);
+            if(!isValid)
+            {
+                Platform.runLater(() -> WarnerClass.WarnerError(warner, "User already in this label", false));
+                return;
+            }
+
+            currLabel.emails.add(email);
+            Platform.runLater(() ->     WarnerClass.WarnerError(warner, email + " added to this label", true););
+            client.saveSettings();
+            switchLabel();
+        }).start();
+        */
         String email = emailInput.getText();
-        if(!email.isEmpty() && Client.getSQLServer().validatePigeonEmail(email) && !currLabel.emails.contains(email))
+        if(!email.isEmpty() && SQLServer.instance.validatePigeonEmail(email) && !currLabel.emails.contains(email) && currLabel != null)
         {
             currLabel.emails.add(email);
             WarnerClass.WarnerError(warner, email + " added to this label", true);
             client.saveSettings();
             switchLabel();
         }
-        else if(!Client.getSQLServer().validatePigeonEmail(email))
+        else if(!SQLServer.instance.validatePigeonEmail(email))
         {
-            WarnerClass.WarnerError(warner, "Invalid user", false);
+            WarnerClass.WarnerError(warner, "Error Occurred", false);
         }
         else if(email.isEmpty())
         {
             WarnerClass.WarnerError(warner, "Please input information", false);
+        }
+        else if(currLabel == null)
+        {
+            WarnerClass.WarnerError(warner, "Please select label", false);
         }
         else
         {
@@ -107,18 +162,23 @@ public class CustomLabelsScene implements Initializable {
     }
 
     @FXML
-    public void emailRemove(ActionEvent actionEvent) {
+    public void emailRemove(ActionEvent actionEvent)
+    {
         String email = emailInput.getText();
-        if(!email.isEmpty() && Client.getSQLServer().validatePigeonEmail(email) && currLabel.emails.contains(email))
+        if(!email.isEmpty() && SQLServer.instance.validatePigeonEmail(email) && currLabel.emails.contains(email) && currLabel != null)
         {
             currLabel.emails.removeIf(e ->(e.equals(email)));
             WarnerClass.WarnerError(warner, email + " removed from this label", true);
             switchLabel();
 
         }
-        else if(email.isEmpty() || !Client.getSQLServer().validatePigeonEmail(email))
+        else if(email.isEmpty() || !SQLServer.instance.validatePigeonEmail(email))
         {
             WarnerClass.WarnerError(warner, "Invalid user", false);
+        }
+        else if(currLabel == null)
+        {
+            WarnerClass.WarnerError(warner, "Please select label", false);
         }
         else
         {

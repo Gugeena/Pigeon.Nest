@@ -2,8 +2,8 @@
 <launch4jConfig>
   <dontWrapJar>false</dontWrapJar>
   <headerType>gui</headerType>
-  <jar>C:\Users\User\Documents\Pigeon.Nest\JAR\Pigeon.Nest.jar</jar>
-  <outfile>C:\Users\User\Documents\Pigeon.Nest\EXE\Pigeon.Nest.exe</outfile>
+  <jar>C:\Users\User\Documents\Pigeon.Nest\out\artifacts\Pigeon_Nest\Pigeon.Nest.jar</jar>
+  <outfile>C:\Users\User\Documents\Pigeon.Nest\JRE exe\Pigeon.Nest.exe</outfile>
   <errTitle></errTitle>
   <cmdLine></cmdLine>
   <chdir>.</chdir>
@@ -15,7 +15,7 @@
   <manifest></manifest>
   <icon>C:\Users\User\Documents\Pigeon.Nest\icon.ico</icon>
   <jre>
-    <path>%JAVA_HOME%;%PATH%</path>
+    <path>JRE</path>
     <requiresJdk>false</requiresJdk>
     <requires64Bit>false</requires64Bit>
     <minVersion></minVersion>

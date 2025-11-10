@@ -121,7 +121,7 @@ public class SignUpScene implements Initializable
                 String error;
                 if(password1.length() < 8)
                 {
-                    error = "password must be over 8 characters long in login";
+                    error = "password must be over 8 characters long";
                 }
                 else if(password1.length() > 26)
                 {

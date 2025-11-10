@@ -539,9 +539,9 @@ public class Client implements Serializable
         return user;
     }
 
-    public static SQLServer getSQLServer() {
-        return SQLServer.instance;
-    }
+    //public static SQLServer getSQLServer() {
+        //return SQLServer.instance;
+    //}
 
     public static boolean isRememberMe() {
         return rememberMe;
