@@ -98,6 +98,7 @@ public class SignUpScene implements Initializable
                 WarnerClass.WarnerError(warning, "Successfully signed up, recoverypass: " + recoverypass, true);
 
                 linkGmailAnchorPane.setVisible(true);
+                linkGmailAnchorPane.setDisable(false);
             }
             else if(!User.validateEmail(email1) || !User.validateLogin(username1))
             {
