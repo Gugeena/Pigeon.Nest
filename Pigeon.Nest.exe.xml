@@ -3,7 +3,7 @@
   <dontWrapJar>false</dontWrapJar>
   <headerType>gui</headerType>
   <jar>C:\Users\lasha\OneDrive\Documents\GitHub\Pigeon.Nest\JAR\Pigeon.Nest.jar</jar>
-  <outfile>C:\Users\lasha\OneDrive\Documents\GitHub\Pigeon.Nest\Pigeon.Nest.exe</outfile>
+  <outfile>Pigeon.Nest.exe</outfile>
   <errTitle></errTitle>
   <cmdLine></cmdLine>
   <chdir>.</chdir>
@@ -15,7 +15,7 @@
   <manifest></manifest>
   <icon>C:\Users\lasha\OneDrive\Documents\GitHub\Pigeon.Nest\icon.ico</icon>
   <jre>
-    <path>C:\Users\lasha\OneDrive\Documents\GitHub\Pigeon.Nest\JRE</path>
+    <path>JRE</path>
     <requiresJdk>false</requiresJdk>
     <requires64Bit>false</requires64Bit>
     <minVersion></minVersion>
