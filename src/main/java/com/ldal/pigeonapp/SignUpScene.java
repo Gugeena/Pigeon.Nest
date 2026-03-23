@@ -94,7 +94,6 @@ public class SignUpScene implements Initializable
                 String formatted = LocalDateTimer.localDateTime();
 
                 SQLServer.instance.SignUp(username1, email1 + "@pigeon.nest", passHasher.hasher(password1), recoverypass, formatted);
-                warning.setText("Successfully signed up, recoverypass: " + recoverypass);
                 WarnerClass.WarnerError(warning, "Successfully signed up, recoverypass: " + recoverypass, true);
 
                 linkGmailAnchorPane.setVisible(true);

@@ -324,7 +324,9 @@ public class SQLServer
     }
 
     public boolean  checkDuplicateEmail(String email){
-        try{
+        try
+        {
+            email += "@Pigeon.Nest";
             getUserFromEmail.setString(1, email);
             ResultSet dbResult = getUserFromEmail.executeQuery();
             return dbResult.isBeforeFirst();
